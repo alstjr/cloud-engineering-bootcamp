@@ -11,7 +11,7 @@
 | 1 | Java 기초 & OOP | `JavaPratice` | ✅ 완료 |
 | 2 | MySQL | - | ✅ 완료 |
 | 3 | JDBC | `JdbcTest` | 🔥 진행중 |
-| 4 | Spring | - | ⏳ 예정 |
+| 4 | Spring Boot | - | ⏳ 예정 |
 | 5 | Cloud (AWS) | - | ⏳ 예정 |
 
 ---
@@ -25,8 +25,3 @@
 
 ---
 
-## 📁 폴더 구조
-cloud-engineering-bootcamp/
-├── JavaPratice/   # Java 기초, OOP, 컬렉션
-├── JdbcTest/      # JDBC 실습
-└── README.md
