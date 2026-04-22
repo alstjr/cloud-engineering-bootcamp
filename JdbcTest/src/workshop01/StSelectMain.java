@@ -44,6 +44,9 @@ public class StSelectMain {
 				StService service = new StServiceImpl();
 				service.setDao(new StDAO());
 				List<StDTO> list = service.nameSelect(name);
+				System.out.println("==========================================================");
+				System.out.println("학번\t이름\t주민번호\t주소\t입학년도\t휴학여부");
+				System.out.println("----------------------------------------------------------");
 				for(StDTO dto : list) {
 					System.out.printf("%s \t %s \t %s \t %s \t %s \t %s  \n ",
 							dto.getStuNo(), dto.getStuName(),dto.getStuSsn(),dto.getStuAddress(),dto.getEntDate(),dto.getAbsYn());
@@ -66,9 +69,17 @@ public class StSelectMain {
 			    System.out.println("총 검색결과 : " + list.size() + "명");
 		}else if("4".equals(menu)) {
 			System.out.print("검색할 학생의 학번을 입력하시오 => ");
-			String st = scan.next();
-			StringTokenizer stNo = new StringTokenizer(st);
-			
+			String st = scan.next(); //A674033,A656014,A213046
+			StServiceImpl service = new StServiceImpl();
+			List<StDTO> list = service.stNoSelect(st);
+			System.out.println("==========================================================");
+			System.out.println("학번\t이름\t주민번호\t주소\t입학년도\t휴학여부");
+			System.out.println("----------------------------------------------------------");
+			for (StDTO s : list) {
+				System.out.println(s.getStuNo() + "\t" + s.getStuName() + "\t" + s.getStuSsn() + "\t"
+						+ s.getStuAddress() + "\t" + s.getEntDate() + "\t" + s.getAbsYn());
+			}
+			System.out.println("총 학생 수 : " + list.size() + "명");
 		}
 		else {
 			scan.close();

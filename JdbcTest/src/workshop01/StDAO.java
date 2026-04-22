@@ -189,13 +189,24 @@ public class StDAO {
 	             + "WHEN LENGTH(STUDENT_ADDRESS) > 10 THEN CONCAT(SUBSTRING(STUDENT_ADDRESS, 1, 10), '...') "
 	             + "ELSE STUDENT_ADDRESS END as STUDENT_ADDRESS,"
 	             + "DATE_FORMAT(ENTRANCE_DATE, '%Y/%m/%d') as ENTRANCE_DATE, "
-	             + "ABSENCE_YN, COACH_PROFESSOR_NO "
-	             + "from tb_student WHERE STUDENT_NO = ?"
-	             + "ORDER BY ENTRANCE_DATE DESC"; 
-	    try {
-	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, stNo);
-	        rs = pstmt.executeQuery();
+	             + "ABSENCE_YN, COACH_PROFESSOR_NO ";
+	             sql += " from tb_student where student_no in ( ";
+	 
+	    	try {
+	    		
+				String [] xxx = stNo.split(",");
+				for(int i=0;i<xxx.length;i++) {
+					sql +="?";
+					if(i!=(xxx.length-1)) sql+=",";
+				}
+				sql+=") order by 1";
+	System.out.println("sql>" + sql);			
+
+	            pstmt = con.prepareStatement(sql);
+	            for(int i=0;i<xxx.length;i++) {
+					pstmt.setString(i+1, xxx[i]);
+				}
+	            rs = pstmt.executeQuery();
 	        while (rs.next()) {
 	            String stuNo = rs.getString("STUDENT_NO");
 	            String stuName = rs.getString("STUDENT_NAME");

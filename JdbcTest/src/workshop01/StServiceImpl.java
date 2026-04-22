@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import exam2.select.DeptDAO;
 import exam2.select.DeptDTO;
@@ -96,11 +95,12 @@ public class StServiceImpl implements StService{
 	}// end yearSelect
 	//학생 학번조회
 	@Override
-	public List<StDTO> stNoSelect(StringTokenizer stNo) {
+	public List<StDTO> stNoSelect(String stNo) {
 		 List<StDTO> list = null;
 		    Connection con = null;
 		    try {
 		        con = DriverManager.getConnection(url, userid, passwd);
+		        StDAO dao = new StDAO();
 		        list = dao.stNoSelect(con,stNo);
 		    } catch (SQLException e) {
 		        e.printStackTrace();
