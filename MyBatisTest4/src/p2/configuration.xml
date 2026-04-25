@@ -3,19 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!-- xml 주석 -->
-<!-- jdbc.properties 등록 -->
 
-<properties resource="com/config/jdbc.properties"></properties>
+  <!-- com.config.jdbc.properties 등록-->
+  <properties resource="p2/jdbc.properties"></properties>
 
-<typeAliases>
-	<typeAlias alias="DeptDTO" type="com.dto.DeptDTO"/>
-</typeAliases>
+  <!-- com.dto.EmpDTO 별칭 -->
+  <typeAliases>
+   <package name="p2" />
+  </typeAliases>
+  
 
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
-      <dataSource type="POOLED"> <!--  db 연동  -->
+      <dataSource type="POOLED">
         <property name="driver" value="${jdbc.driver}"/>
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.userid}"/>
@@ -24,8 +25,6 @@
     </environment>
   </environments>
   <mappers>
-  <!-- mapper 파일  등록 -->
-    <mapper resource="com/config/DeptMapper.xml"/>
-    <mapper resource="com/config/DeptMapper2.xml"/>
+    <mapper resource="p2/EmpMapper.xml"/>
   </mappers>
 </configuration>

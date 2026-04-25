@@ -6,10 +6,11 @@
 <!-- xml 주석 -->
 <!-- jdbc.properties 등록 -->
 
-<properties resource="com/config/jdbc.properties"></properties>
+<properties resource="p1/jdbc.properties"></properties>
 
+<!-- com.dto.EmpDTO 별칭 -->
 <typeAliases>
-	<typeAlias alias="DeptDTO" type="com.dto.DeptDTO"/>
+	<package name="p1"/>
 </typeAliases>
 
   <environments default="development">
@@ -25,7 +26,6 @@
   </environments>
   <mappers>
   <!-- mapper 파일  등록 -->
-    <mapper resource="com/config/DeptMapper.xml"/>
-    <mapper resource="com/config/DeptMapper2.xml"/>
+    <mapper resource="p1/EmpMapper.xml"/>
   </mappers>
 </configuration>

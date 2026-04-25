@@ -1,7 +1,7 @@
 package com.dto;
 
 // dept 테이블의 컬럼 저장 ( 레코드 저장 )
-public class DeptDto {
+public class DeptDTO {
 	
 	// 컬럼명으로 변수명을 사용하자
 	int deptno;
@@ -9,9 +9,9 @@ public class DeptDto {
 	String loc;
 	
 	// 필수 
-	public DeptDto() {}
+	public DeptDTO() {}
 
-	public DeptDto(int deptno, String dname, String loc) {
+	public DeptDTO(int deptno, String dname, String loc) {
 		this.deptno = deptno;
 		this.dname = dname;
 		this.loc = loc;
